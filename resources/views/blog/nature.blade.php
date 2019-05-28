@@ -5,7 +5,7 @@
 @section('content')
     <div class="row">
         <div class="col-md-12">
-            <p class="quote">Welcome to CH news!</p>
+            <p class="quote">Nature news!</p>
         </div>
     </div>
 
