@@ -7,7 +7,7 @@ $factory->define(App\Post::class, function (Faker $faker) {
     $ranCat = $faker->randomElement($array = array('sports', 'fashion', 'people', 'technics', 'nature'));
     
     return [
-        'user_id' => '1',
+        'category_id' => $faker->numberBetween($min = 1, $max = 7),
         'title' => $faker->sentence($nbWords = 5, $variableNbWords = true),
         'content' => $faker->paragraph($nbSentences = 3, $variableNbSentences = true),
         'image' => $faker->imageUrl($width = 640, $height = 480, $ranCat),
