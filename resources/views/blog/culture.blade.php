@@ -5,12 +5,12 @@
 @section('content')
     <div class="row">
         <div class="col-md-12">
-            <p class="quote">Welcome to CH news!</p>
+            <p class="quote">Cultural news!</p>
         </div>
     </div>
 
 
-    @foreach($posts as $post)
+    @foreach($culture as $post)
     <div class="row">
         <div class="col-md-12 text-center">
             <h1 class="post-title">{{ $post->title }}</h1>

@@ -15,6 +15,42 @@ Route::get('/', [
     'as' => 'blog.index'
 ]);
 
+Route::get('fashion', function () {
+
+    $fashion = DB::table('posts')->where('category', 'fashion')->get();
+    return view('blog.fashion', ['fashion' =>  $fashion]);
+    
+})->name('blog.fashion');
+
+Route::get('nature', function () {
+
+    $nature = DB::table('posts')->where('category', 'nature')->get();
+    return view('blog.nature', ['nature' =>  $nature]);
+    
+})->name('blog.nature');
+
+Route::get('sports', function () {
+
+    $sports = DB::table('posts')->where('category', 'sports')->get();
+    return view('blog.sports', ['sports' =>  $sports]);
+    
+})->name('blog.sports');
+
+
+Route::get('technology', function () {
+
+    $technology = DB::table('posts')->where('category', 'technics')->get();
+    return view('blog.technology', ['technology' =>  $technology]);
+    
+})->name('blog.technology');
+
+Route::get('culture', function () {
+
+    $culture = DB::table('posts')->where('category', 'people')->get();
+    return view('blog.culture', ['culture' =>  $culture]);
+    
+})->name('blog.culture');
+
 Route::get('post/{id}', [
     'uses' => 'PostController@getPost',
     'as' => 'blog.post'
