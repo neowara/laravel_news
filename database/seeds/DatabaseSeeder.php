@@ -15,5 +15,7 @@ class DatabaseSeeder extends Seeder
 
        $user = factory(App\User::class, 30)->create();
        $post = factory(App\Post::class, 300)->create();
+       $ad = factory(App\Ad::class, 5)->create();
+       $this->call(RoleTableSeeder::class);
     }
 }
