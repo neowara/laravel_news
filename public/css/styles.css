@@ -7,3 +7,52 @@
 .post-title {
     color: royalblue;
 }
+
+.navbar {
+    display: flex;
+    background-color: #4881B2;
+    margin: auto;
+    padding: 0;
+    text-decoration: none;
+    position: fixed;
+    top: 0;
+    width: 100%; 
+    z-index: 999;
+}
+
+.navbar-default .navbar-nav > li > a , .navbar-default .navbar-brand {
+    color: white;
+}
+
+body {
+    background-color: #F6C970;
+    font-family: 'Oswald', sans-serif;
+ 
+
+}
+
+.container {
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navbar-nav {
+    list-style-type: none;
+}
+
+.nav-link {
+    float: left;
+    height: 50px;
+    padding: 15px 15px;
+    line-height: 20px;
+}
+
+.container-fluid {
+    display:flex;
+}
+
+.row  {
+    text-align: center;
+}

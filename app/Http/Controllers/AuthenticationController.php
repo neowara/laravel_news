@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Auth;
 
-//create own signin controller
 
 class AuthenticationController extends Controller
 {

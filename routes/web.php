@@ -61,30 +61,47 @@ Route::get('about', function () {
 })->name('other.about');
 
 
-Route::group(['prefix' => 'admin'], function() {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function() {
+
     Route::get('', [
         'uses' => 'PostController@getAdminIndex',
-        'as' => 'admin.index'
+        'as' => 'admin.index',
+        'middleware' => 'roles',
+        'roles' => 'Admin'
     ]);
 
     Route::get('create', [
         'uses' => 'PostController@getAdminCreate',
-        'as' => 'admin.create'
+        'as' => 'admin.create',
+        'middleware' => 'roles',
+        'roles' => 'Admin'
     ]);
 
     Route::post('create', [
         'uses' => 'PostController@postAdminCreate',
-        'as' => 'admin.create'
+        'as' => 'admin.create',
+        'middleware' => 'roles',
+        'roles' => 'Admin'
     ]);
 
     Route::get('edit/{id}', [
         'uses' => 'PostController@getAdminEdit',
-        'as' => 'admin.edit'
+        'as' => 'admin.edit',
+        'middleware' => 'roles',
+        'roles' => 'Admin'
     ]);
 
     Route::post('edit', [
         'uses' => 'PostController@postAdminUpdate',
-        'as' => 'admin.update'
+        'as' => 'admin.update',
+        'middleware' => 'roles',
+        'roles' => 'Admin'
+    ]);
+    Route::get('delete/{id}', [
+        'uses' => 'PostController@getAdminDelete',
+        'as' => 'admin.delete',
+        'middleware' => 'roles',
+        'roles' => 'Admin'
     ]);
 });
 

@@ -9,7 +9,9 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">    <link rel="stylesheet" href="{{ URL::to('css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">    
+    <link rel="stylesheet" href="{{ URL::to('css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
 </head>
 <body>
 @include('partials.header')
@@ -17,4 +19,9 @@
     @yield('content')
 </div>
 </body>
+<script>
+function goBack() {
+  window.history.back()
+}
+</script>
 </html>

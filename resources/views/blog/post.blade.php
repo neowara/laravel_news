@@ -12,4 +12,5 @@
             <p>{{ $post->content }}</p>
         </div>
     </div>
+    <button onclick="goBack()">Go Back</button>
 @endsection
