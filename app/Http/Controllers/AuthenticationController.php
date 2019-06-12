@@ -6,14 +6,14 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Auth;
 
+//create own signin controller
+
 class AuthenticationController extends Controller
 {
     public function signin(Request $request){
         $this->validate($request,[
-            'name'=>'required',
-            'last_name'=>'required',
-            'email'=>'required|email',
-            'password'=>'required'
+          'email'=>'required|email',
+          'password'=>'required'
         ]);
         if(Auth::attempt(['email'=>$request->input('email'),
             'password'=>$request->input('password')],
