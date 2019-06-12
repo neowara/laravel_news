@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Illuminate\Session\Store;
+use Faker\Generator as Faker;
 
 class PostController extends Controller
 {
@@ -40,18 +41,24 @@ class PostController extends Controller
         return view('admin.edit', ['post' => $post, 'postId' => $id]);
     }
 
-    public function postAdminCreate(Request $request)
+    public function postAdminCreate(Request $request, Faker $faker)
     {
         $this->validate($request, [
             'title' => 'required|min:5',
-            'content' => 'required|min:10'
+            'content' => 'required|min:10',
+            'category' => 'required|min:5',
+            'image' => 'required|min:2'
         ]);
         $post = new Post([
+            'category_id' => '2',
             'title' => $request->input('title'),
-            'content' => $request->input('content')
+            'content' => $request->input('content'),
+            'category' => $request->input('category'),
+            'image' => $request->input('image')
+
         ]);
         $post->save();
-    //    $post->addPost($session, $request->input('title'), $request->input('content'));
+
         return redirect()->route('admin.index')->with('info', 'Post created, Title is: ' . $request->input('title'));
     }
 
@@ -59,10 +66,14 @@ class PostController extends Controller
     {
         $this->validate($request, [
             'title' => 'required|min:5',
-            'content' => 'required|min:10'
+            'content' => 'required|min:10',
         ]);
-        $post = new Post();
-        $post->editPost($session, $request->input('id'), $request->input('title'), $request->input('content'));
-        return redirect()->route('admin.index')->with('info', 'Post edited, new Title is: ' . $request->input('title'));
+        $post = Post::find($request->input('id'));
+
+        $post->title=$request->input('title');
+        $post->content=$request->input('content');
+        $post->save();
+
+        return redirect()->route('admin.index')->with('info', 'Post edited, new Title is: ' . $request->input('title') . 'And new content is: ' . $request->input('content'));
     }
 }

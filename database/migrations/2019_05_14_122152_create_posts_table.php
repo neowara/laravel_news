@@ -15,12 +15,12 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('category_id');
+            $table->integer('category_id')->nullable();
             $table->string('title');
             $table->text('content');
-            $table->string('image');
-            $table->integer('rank');
-            $table->string('category');
+            $table->string('image')->nullable();
+            $table->integer('rank')->nullable();
+            $table->string('category')->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
             

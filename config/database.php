@@ -62,8 +62,9 @@ return [
             'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix' => '',
-            'strict' => true,
+            'strict' => false,
             'engine' => null,
+            'timezone'  => '+00:00'
         ],
 
         'pgsql' => [
@@ -116,12 +117,6 @@ return [
             'database' => 0,
         ],
 
-    ],
-
-    'mysql' => [
-        // ...
-    
-        'timezone'  => '+00:00'
     ],
 
 ];
